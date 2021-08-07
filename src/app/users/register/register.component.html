@@ -1,0 +1,51 @@
+
+
+
+<div class="container login-container">
+  <div class="row" style="justify-content: center;text-align: center;">
+      <div class="col-md-6 login-form-1" style="background: #bfbdb4;">
+        <h1 class="register"> SOUQ</h1>
+        <form class="example-form">
+              <div class="form-group">
+                  <input type="text" class="form-control" required [formControl]="fullNameFormControl" placeholder="Your Full Name *" value=""  #fullName> 
+                
+  
+                  <mat-error *ngIf="fullNameFormControl.hasError('required')">
+                    Full Name is <strong>required</strong>
+                  </mat-error>
+
+                  <input type="text" class="form-control" required [formControl]="mobileNumberFormControl" placeholder="Your MobileNumber*" value=""  #MobileNumber> 
+                
+  
+                  <mat-error *ngIf="mobileNumberFormControl.hasError('required')">
+                    Mobile Number is <strong>required</strong>
+                  </mat-error>
+                  <input type="text" class="form-control" required [formControl]="emailFormControl" placeholder="Your Email *" value=""  #email> 
+                
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+              </div>
+              <div class="form-group">
+                  <input  class="form-control" placeholder="Your Password *" value="" required [type]="hide ? 'password' : 'text'" #password />
+                  
+           
+              </div>
+              <div class="form-group">
+                  <input type="button" class="btnSubmit" value="Register"   (click)="register(fullName.value,MobileNumber.value,email.value,password.value)" />
+                  
+              </div>
+              <div class="form-group">
+                  <a href="user/login" class="btnForgetPwd register" >Login</a>
+              </div>
+              <mat-error *ngIf="errorLogin">
+                Wrong <strong>Password or Email</strong>
+              </mat-error>
+          </form>
+      </div>
+    </div>
+
+</div>

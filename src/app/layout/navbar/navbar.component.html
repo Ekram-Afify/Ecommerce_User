@@ -1,0 +1,28 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bg">
+    <a class="navbar-brand" href="#"><img src="assets/images/logo.jpg" class="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     
+
+    </div>
+    <a (click)="GoToCart()" ><mat-icon class="cart-icon">shopping_cart</mat-icon></a>
+    <a href="/orders/myorders" *ngIf="isAuthorized"  class="log-out">My Orders</a>
+    <form class="form-inline my-2 my-lg-0">
+      
+      <a (click)="logout()" *ngIf="isAuthorized"  class="log-out">Log Out</a>
+
+    
+
+      <span class="navbar-text w-auto text-right order-1 order-md-last cart_r" *ngIf="cartQTY>0">
+        <label class="">
+          <a class="rounded-circle cart cursor" aria-haspopup="true" (click)="GoToCart()" aria-expanded="false" style="  background: #BFA947;">
+            <div class="cart-count">{{cartQTY}}</div>
+          </a>
+</label></span>
+      <!-- <button type="button"  *ngIf="!isAuthorized" class="btn btn-dark my-2 my-sm-0" id="logbtn" (click)="login()" >Login</button> -->
+    </form>
+  </nav>
+

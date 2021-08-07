@@ -1,0 +1,92 @@
+
+
+<div class="container" style="margin-top: 5em;">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row" *ngIf="totalPrice>0">
+        <div class="col-md-9">
+            <div class="ibox">
+              
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table shoping-cart-table" cellspacing="0" style=" border-collapse:separate;
+                        border-spacing:0 15px;">
+                            <tbody>
+                            <tr *ngFor="let product of products" style="    background: #d1cbc5;">
+                                <td width="90">
+                                   
+                                      <img class="card-img-top img" src="http://localhost:60108/{{product.image}}" alt="Card image cap" id="prod-img">
+                                  
+                                </td>
+                                <td class="desc">
+                                    <h3>
+                                    <a href="#" class="text-navy prod-name">
+                                      {{product.name}}
+                                    </a>
+                                    </h3>
+                                    <p class="small">
+                                      {{product.description}}
+                                    </p>
+                                    <dl class="small m-b-none">
+                                        <dt>Description lists</dt>
+                                        <dd>A description list is perfect for defining terms.</dd>
+                                    </dl>
+
+                                </td>
+
+                              
+                                <td width="65">
+                                  
+                                    <input matInput type="number" min="1" max={{product.stockQuantity}} name="quantity"  placeholder="Enter Quantity" [(ngModel)]="product.selectedQt" class="example-right-align" (change)="CalcTotalPrice2()" >  </td> 
+                                <td>
+                                    <h4>
+                                       {{product.price}}
+                                       <span>$</span>
+                                    </h4>
+                                </td>
+                                <td (click)="removeFromCart(product)"><mat-icon style="color: #b00808; cursor: pointer;
+                                    font-size: 2em; " (click)="removeFromCart(product)">delete</mat-icon></td>
+                            </tr>
+                            <br>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+           
+            </div>
+
+        </div>
+        <div class="col-md-3" style="margin-top: 29px;">
+            <div class="ibox ">
+                <div class="ibox-title cart-checkpout">
+                    <h3>Cart Summary</h3>
+                </div>
+                <div class="ibox-content">
+                    <span>
+                        Total
+                    </span>
+                    <h2 class="font-bold">
+                       {{totalPrice}}$
+                    </h2>
+
+                    <hr>
+                  
+                    <div class="m-t-sm">
+                        <div class="btn-group">
+                        <a class="btn  btn-md" style="background: rgb(98 19 11);
+                        margin-right: 20px;
+                        color: wheat;" (click)="purchase()"><i class="fa fa-shopping-cart"></i> Confirm Order</a>
+                        <a  class="btn btn-white btn-md" style="background: rgb(75, 74, 72);color: antiquewhite" (click)="cancelOrder()" > Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row no-items-msg" *ngIf="totalPrice==0">
+        <p>There is no items in shopping cart</p>
+    </div>
+</div>
+</div>
+     

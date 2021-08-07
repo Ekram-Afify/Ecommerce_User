@@ -1,0 +1,43 @@
+
+
+<div class="container-fluid my-container" style="padding: 0;">
+    
+   <div class=" row justify-content-md-center">
+    
+        <div class=" col-4" style="padding: 1em" *ngFor="let prod of products">
+            <div class="card-header card-bg" >
+                <h3>{{prod.name}}</h3>
+            </div>
+            <img class="card-img-top " src="http://localhost:60108/{{prod.image}}" alt="Card image cap" style="height: 14em;">
+            <div class="card-footer text-center card-bg">
+                <h4>{{prod.price}} $</h4>
+                
+                  <a class="btn  m-1 add-cart-btn" (click)="AddToCard(prod)" *ngIf="!prod.addedtocart && prod.stockQuantity>0"  >Add To Cart</a>
+                  
+                  <a class="btn  m-1 add-cart-btn not-available-prod" (click)="AddToCard(prod)" *ngIf="prod.stockQuantity==0"  sty>Not Available Now</a>
+                   <a class="btn  m-1 add-cart-btn" (click)="removeFromCart(prod)" *ngIf="prod.addedtocart" style="width: 11em">Remove From Cart</a>
+                   <a class="btn  m-1 add-cart-btn" (click)="ViewDetails(prod.id)"  >View</a>
+            </div>
+           
+        </div>
+
+</div>
+
+
+</div>
+
+<div class="d-flex" style="display: flex; justify-content: center;" *ngIf="products.length>0">
+    <pagination *ngIf="pagination"
+                [boundaryLinks]="true"
+                 [totalItems]="pagination.totalItems"
+                 [itemsPerPage]="20"
+                 [(ngModel)] = "pagination.currentPage"
+                 (pageChanged) = "pageChanged($event)"
+                previousText="&lsaquo;"
+                 nextText="&rsaquo;" 
+                 firstText="&laquo;" 
+                 lastText="&raquo;">
+    
+    </pagination>
+  </div>
+

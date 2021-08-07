@@ -1,0 +1,49 @@
+<div class="card" style="margin-top: 3em;">
+    <div class="row" *ngIf="orders.length>0">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>My Orders</b></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row border-top border-bottom" *ngFor="let order of orders">
+                <div class="row main align-items-center">
+                    <div class="col-4"><img class="img-fluid" src="http://localhost:60108/{{order.image}}" style="width: 12em;height:8em"></div>
+                    <div class="col">
+                        <div class="row text-muted">{{order.productName}}</div>
+                        
+                    </div>
+                    <div class="col"> <a  class="border">{{order.price}} $</a> </div>
+                    <div class="col"> <a  class="border">Qnt: {{order.quantity}} </a> </div>
+                    <div class="col"> <a  class="border">{{order.status}} </a> </div>
+                    <!-- <div class="col">{{order.propductPrice}} $</div> -->
+                </div>
+            </div>
+     
+          
+           
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">ITEMS {{count}}</div>
+               
+            </div>
+           
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">&euro; {{totalamount}}</div>
+            </div> 
+        </div>
+    </div>
+    <div class="row" *ngIf="orders.length==0">
+        <h2>There Is No Orders</h2>
+    </div>
+</div>
+
+

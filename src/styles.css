@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.add-cart-btn{
+    background: #6f1313;
+    width: 7em;
+    color: wheat  !important;
+  }
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6f1313 !important;
+    border-color: #6f1313 !important;
+}

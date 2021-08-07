@@ -1,0 +1,90 @@
+
+
+<div class="container" style="margin-top: 5em;">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ibox">
+                  
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table shoping-cart-table" cellspacing="0" style=" border-collapse:separate;
+                            border-spacing:0 15px;">
+                                <tbody>
+                                <tr >
+                                    <td width="90">
+                                       
+                                          <img class="card-img-top " src="http://localhost:60108/{{product.image}}" alt="Card image cap" id="prod-img" style="    height: 15em;
+                                          width: 12em;">
+                                      
+                                    </td>
+                                    <td class="desc">
+                                        <h3>
+                                        <a href="#" class="text-navy prod-name">
+                                          {{product.name}}
+                                        </a>
+                                        </h3>
+                                        <p class="small">
+                                          {{product.description}}
+                                        </p>
+                                        <dl class="small m-b-none">
+                                            <dt>Description lists</dt>
+                                            <dd>A description list is perfect for defining terms.</dd>
+                                        </dl>
+    
+                                    </td>
+    
+                                  
+
+                                    <td>
+                                        <h4>
+                                           {{product.price}}
+                                           <span>$</span>
+                                        </h4>
+                                    </td>
+                                    <td (click)="removeFromCart(product)" *ngIf="product.addedtocart"><mat-icon style="color: #b00808; cursor: pointer;
+                                        font-size: 2em; " (click)="removeFromCart(product)">delete</mat-icon></td>
+
+                                 <td >
+                                       <a class="btn  m-1 add-cart-btn" (click)="AddToCard(product)" *ngIf="!product.addedtocart && product.stockQuantity>0"  >Add To Cart</a></td>
+                                </tr>
+                                <a class="btn  m-1 add-cart-btn not-available-prod" style="cursor: pointer !important" (click)="Back()"   >Back</a>
+                                </tbody>
+                            </table>
+                        </div>
+    
+                    </div>
+               
+                </div>
+    
+            </div>     
+        </div>
+      
+    </div>
+    </div>
+<!-- 
+<div class="container-fluid my-container" style="padding: 0;">
+    
+   <div class=" row justify-content-md-center">
+    
+        <div class=" col-4" style="padding: 1em">
+            <div class="card-header card-bg" >
+                <h3>{{product.name}}</h3>
+            </div>
+            <img class="card-img-top " src="http://localhost:60108/{{product.image}}" alt="Card image cap" style="height: 14em;">
+            <div class="card-footer text-center card-bg">
+                <h4>{{product.price}} $</h4>
+                
+                  <a class="btn  m-1 add-cart-btn" (click)="AddToCard(product)" *ngIf="!product.addedtocart && product.stockQuantity>0"  >Add To Cart</a>
+                  <a class="btn  m-1 add-cart-btn not-available-prod" (click)="AddToCard(product)" *ngIf="product.stockQuantity==0"  sty>Not Available Now</a>
+                   <a class="btn  m-1 add-cart-btn" (click)="removeFromCart(product)" *ngIf="product.addedtocart" style="width: 11em">Remove From Cart</a>
+            </div>
+           
+        </div>
+
+</div>
+
+
+</div> -->
+
+
